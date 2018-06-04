@@ -11,15 +11,11 @@ class LoginPage:
     _imput_pass = '//input[@name="Password"]'
     _submit_button = '//button[@type="submit"]'
     _logout_user = '//div[@class="top-bar__logout"]'
-    #_inbox_button = '//*[@id="login-block"]/div/ul/li[1]/a'
     _write_button = '//button[@class="default compose"]'
     _input_adress = '//input[@name="toInput"]'
     _letter_theme = '//input[@name="subject"]'
-    _text_content = '//body[@class="mce-content-body "]'
     _send_button = '//button[@class="default send"]'
     _sent_success = '//div[@class="sendmsg__ads-ready"]'
-
-    _mi_input_field = '//*[@id="inboxfield"]'
 
     _uk_input_email = '//input[@name="Login"]'
     _uk_input_pass = '//input[@id="id-2"]'
@@ -93,15 +89,13 @@ class LoginPage:
         else:
             return False
 
-    def sending_email(self, inputadress, lettertheme):#, textcontent):
+    def sending_email(self, inputadress, lettertheme):
         element2 = self.driver.find_element(By.XPATH, self._write_button)
         element2.click()
         element3 = self.driver.find_element(By.XPATH, self._input_adress)
         element3.send_keys(inputadress)
         element4 = self.driver.find_element(By.XPATH, self._letter_theme)
         element4.send_keys(lettertheme)
-        #element5 = self.driver.find_element(By.XPATH, self._text_content)
-        #element5.send_keys(textcontent)
         element6 = self.driver.find_element(By.XPATH, self._send_button)
         element6.click()
 
