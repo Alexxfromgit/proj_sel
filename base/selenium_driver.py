@@ -3,6 +3,7 @@ from selenium import webdriver
 
 class SeleniumDriver:
 
-    def driver_instance(self):
-        driver = webdriver.Chrome('C:/chromedriver.exe')
+    @staticmethod
+    def driver_instance():
+        driver = webdriver.Chrome('C:/webdrivers/chromedriver.exe')
         return driver

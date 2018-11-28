@@ -7,12 +7,13 @@ class LoginPage:
         self.driver = driver
 
     #Locators
-    _imput_email = '//input[@name="Login"]'
-    _imput_pass = '//input[@name="Password"]'
+    _input_email = '//input[@name="Login"]'
+    _input_pass = '//input[@name="Password"]'
     _submit_button = '//button[@type="submit"]'
+
     _logout_user = '//div[@class="top-bar__logout"]'
     _write_button = '//button[@class="default compose"]'
-    _input_adress = '//input[@name="toInput"]'
+    _input_address = '//input[@name="toInput"]'
     _letter_theme = '//input[@name="subject"]'
     _send_button = '//button[@class="default send"]'
     _sent_success = '//div[@class="sendmsg__ads-ready"]'
@@ -38,11 +39,11 @@ class LoginPage:
         element.click()
 
     def enter_email(self, email):
-        element = self.driver.find_element(By.XPATH, self._imput_email)
+        element = self.driver.find_element(By.XPATH, self._input_email)
         element.send_keys(email)
 
     def enter_password(self, password):
-        element = self.driver.find_element(By.XPATH, self._imput_pass)
+        element = self.driver.find_element(By.XPATH, self._input_pass)
         element.send_keys(password)
 
     def next_button(self):
@@ -74,7 +75,7 @@ class LoginPage:
         else:
             return False
 
-    def verify_login_succsess(self):
+    def verify_login_success(self):
         element = self.driver.find_element(By.XPATH, self._logout_user)
         if element is not None:
             return True
@@ -89,13 +90,13 @@ class LoginPage:
         else:
             return False
 
-    def sending_email(self, inputadress, lettertheme):
+    def sending_email(self, input_address, letter_topic):
         element2 = self.driver.find_element(By.XPATH, self._write_button)
         element2.click()
-        element3 = self.driver.find_element(By.XPATH, self._input_adress)
-        element3.send_keys(inputadress)
+        element3 = self.driver.find_element(By.XPATH, self._input_address)
+        element3.send_keys(input_address)
         element4 = self.driver.find_element(By.XPATH, self._letter_theme)
-        element4.send_keys(lettertheme)
+        element4.send_keys(letter_topic)
         element6 = self.driver.find_element(By.XPATH, self._send_button)
         element6.click()
 
@@ -106,9 +107,9 @@ class LoginPage:
         else:
             return False
 
-    def el_verify_inbox_email(self, adress):
+    def el_verify_inbox_email(self, address):
         element = self.driver.find_element(By.XPATH, self._el_form_control)
-        element.send_keys(adress)
+        element.send_keys(address)
         element2 = self.driver.find_element(By.XPATH, self._el_button_go)
         element2.click()
         element3 = self.driver.find_element(By.XPATH, "//div[@title='FROM' and"
@@ -118,9 +119,9 @@ class LoginPage:
         else:
             return False
 
-    def el_verify_email_subject(self, adress):
+    def el_verify_email_subject(self, address):
         element = self.driver.find_element(By.XPATH, self._el_form_control)
-        element.send_keys(adress)
+        element.send_keys(address)
         element2 = self.driver.find_element(By.XPATH, self._el_button_go)
         element2.click()
         element3 = self.driver.find_element(By.XPATH, "//div[@class='all_message-min_text all_message-min_text-3' and"

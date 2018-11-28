@@ -28,7 +28,7 @@ class TestALoginPage(unittest.TestCase):
         self.login_page.verify_page_is_loaded("UKR.NET: Всі новини України,"
                                               " останні новини дня в Україні та Світі")
         self.login_page.login('testrw@ukr.net', 'Python36')
-        result = self.login_page.verify_login_succsess()
+        result = self.login_page.verify_login_success()
         assert result == True
 
 
